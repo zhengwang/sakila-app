@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ClarityIcons, userIcon } from '@cds/core/icon';
 import '@cds/core/icon/register.js';
-import { ClarityModule, ClrIconModule } from "@clr/angular";
-import { DashboardModule } from './dashboard/dashboard.module';
+import { ClarityModule } from "@clr/angular";
+import { SharedModule } from './shared/shared.module';
 
 ClarityIcons.addIcons(userIcon);
 
@@ -15,9 +15,10 @@ ClarityIcons.addIcons(userIcon);
     CommonModule,
     RouterOutlet,
     ClarityModule,
+    SharedModule
   ],
   // templateUrl: './app.component.html',
-  template: '<router-outlet></router-outlet>',
+  template: '<app-layout><router-outlet></router-outlet></app-layout>',
   styleUrl: './app.component.css'
 })
 export class AppComponent {

@@ -6,6 +6,7 @@ import { Header } from './header/header';
 import { Layout } from './layout/layout';
 import { Navbar } from './navbar/navbar';
 import { Sidebar } from './sidebar/sidebar';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -19,7 +20,8 @@ import { Sidebar } from './sidebar/sidebar';
   imports: [
     CommonModule,
     ClrVerticalNavModule,
-    ClrIconModule
+    ClrIconModule,
+    RouterModule
   ],
   exports: [Layout]
 })

@@ -3,7 +3,10 @@
     <cds-icon shape="user" clrVerticalNavIcon></cds-icon>
     Normal
     <clr-vertical-nav-group-children>
-      <a clrVerticalNavLink routerLink="./normal/pidgey" routerLinkActive="active">Pidgey</a>
+      <a clrVerticalNavLink [routerLink]="['dashboard']"
+			routerLinkActive="active">
+				Dashboard
+			</a>
       <a clrVerticalNavLink routerLink="./normal/snorlax" routerLinkActive="active">Snorlax</a>
     </clr-vertical-nav-group-children>
   </clr-vertical-nav-group>
