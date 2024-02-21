@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ClrTabsModule } from '@clr/angular';
+import { ClarityModule, ClrDatagridModule } from '@clr/angular';
 import { SharedModule } from '../shared/shared.module';
 import { Index } from './index/index';
 
@@ -13,7 +13,7 @@ import { Index } from './index/index';
   imports: [
     CommonModule,
     SharedModule,
-    ClrTabsModule
+    ClrDatagridModule,
   ],
   exports: [
     Index

@@ -5,6 +5,7 @@ import { ClarityIcons, userIcon } from '@cds/core/icon';
 import '@cds/core/icon/register.js';
 import { ClarityModule } from "@clr/angular";
 import { SharedModule } from './shared/shared.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 ClarityIcons.addIcons(userIcon);
 
@@ -15,7 +16,8 @@ ClarityIcons.addIcons(userIcon);
     CommonModule,
     RouterOutlet,
     ClarityModule,
-    SharedModule
+    SharedModule,
+    DashboardModule
   ],
   // templateUrl: './app.component.html',
   template: '<app-layout><router-outlet></router-outlet></app-layout>',
