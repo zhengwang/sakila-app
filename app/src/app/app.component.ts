@@ -6,6 +6,9 @@ import '@cds/core/icon/register.js';
 import { ClarityModule } from "@clr/angular";
 import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthTokenInterceptor } from './service/token.interceptor';
+import { InventoryModule } from './inventory/inventory.module';
 
 ClarityIcons.addIcons(userIcon);
 
@@ -17,10 +20,19 @@ ClarityIcons.addIcons(userIcon);
     RouterOutlet,
     ClarityModule,
     SharedModule,
-    DashboardModule
+    DashboardModule,
+    HttpClientModule,
+    InventoryModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthTokenInterceptor,
+      multi: true
+    }
   ],
   // templateUrl: './app.component.html',
-  template: '<app-layout><router-outlet></router-outlet></app-layout>',
+  template: '<router-outlet></router-outlet>',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
