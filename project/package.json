@@ -7,7 +7,8 @@
     "build": "ng build --base-href /sakila-app/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "gc": "ng g c ${component_name} --type '' --inline-style --skip-tests --inline-template --flat --skip-tests"
+    "gc": "ng g c ${component_name} --type '' --inline-style --skip-tests --inline-template --flat --skip-tests",
+    "gc2": "ng g c ${component_name} --type '' --inline-style --skip-tests --inline-template --flat --skip-tests --standalone false"
   },
   "private": true,
   "dependencies": {
