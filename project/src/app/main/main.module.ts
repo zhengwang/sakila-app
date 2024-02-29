@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ClarityIcons, cogIcon, filmStripIcon, storeIcon, userIcon, usersIcon, vmBugIcon } from '@cds/core/icon';
 import '@cds/core/icon/register.js';
+import { ClarityModule, ClrDatagridModule, ClrIconModule, ClrVerticalNavModule } from '@clr/angular';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { FilmService } from '../service/film.service';
+import { Customer } from './customer';
+import { Film } from './film';
 import { Index } from './index';
 import { Layout } from './layout';
 import { routes } from './routes';
-import { ClarityModule } from '@clr/angular';
 import { Sidebar } from './sidebar';
-import { Film } from './film';
 import { Store } from './store';
-import { Customer } from './customer';
-import { FilmService } from '../service/film.service';
-import { HttpClientModule } from '@angular/common/http';
 ClarityIcons.addIcons(vmBugIcon);
 ClarityIcons.addIcons(cogIcon);
 ClarityIcons.addIcons(userIcon);
@@ -32,6 +33,9 @@ ClarityIcons.addIcons(usersIcon);
   ],
   imports: [
     CommonModule,
+    ClrVerticalNavModule,
+    ClrDatagridModule,
+    ClrIconModule,
     ClarityModule,
     HttpClientModule,
     RouterModule.forChild(routes)
