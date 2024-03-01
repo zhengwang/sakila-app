@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <clr-vertical-nav
       [clrVerticalNavCollapsible]="true"
       [(clrVerticalNavCollapsed)]="collapsed">
-      <!-- <clr-vertical-nav-group>
+      <clr-vertical-nav-group>
         <cds-icon shape="film-strip" clrVerticalNavIcon/>
         Inventory
         <clr-vertical-nav-group-children>
@@ -14,15 +14,7 @@ import { Component } from '@angular/core';
             Films
           </a>
         </clr-vertical-nav-group-children>
-      </clr-vertical-nav-group> -->
-      <clr-vertical-nav-group routerLinkActive="active">
-    <cds-icon shape="user" clrVerticalNavIcon></cds-icon>
-    Normal
-    <clr-vertical-nav-group-children>
-      <a clrVerticalNavLink routerLink="./normal/pidgey" routerLinkActive="active">Pidgey</a>
-      <a clrVerticalNavLink routerLink="./normal/snorlax" routerLinkActive="active">Snorlax</a>
-    </clr-vertical-nav-group-children>
-  </clr-vertical-nav-group>
+      </clr-vertical-nav-group>
      
       <a clrVerticalNavLink routerLink="/main/store" routerLinkActive="active">
         <cds-icon clrVerticalNavIcon shape="store" />

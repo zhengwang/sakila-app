@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { ClarityIcons, cogIcon, filmStripIcon, storeIcon, userIcon, usersIcon, vmBugIcon } from '@cds/core/icon';
 import '@cds/core/icon/register.js';
 import { ClarityModule, ClrDatagridModule, ClrIconModule, ClrVerticalNavModule } from '@clr/angular';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { FilmService } from '../service/film.service';
 import { Customer } from './customer';
 import { Film } from './film';
