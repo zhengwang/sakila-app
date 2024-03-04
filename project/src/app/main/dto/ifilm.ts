@@ -5,4 +5,5 @@ export interface IFilm {
 	release_year: number;
 	language: string;
 	description: string;
+	categories: string;
 }

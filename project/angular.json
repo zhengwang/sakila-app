@@ -30,7 +30,10 @@
               "node_modules/@clr/ui/clr-ui.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/jquery-3.7.1.min.js",
+              "src/assets/DataTables/datatables.min.js"
+            ]
           },
           "configurations": {
             "production": {

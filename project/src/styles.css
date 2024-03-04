@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/DataTables/datatables.min.css';
+
+.dt-paging-button {
+	padding: 0.25rem 0.5rem !important;
+}

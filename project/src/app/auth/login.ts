@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import { ClrCheckboxModule, ClrInputModule, ClrPasswordModule, ClrSelectModule } from '@clr/angular';
+import { LoginService } from '../service/login.service';
 import { Layout } from './layout';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ import { RouterModule } from '@angular/router';
     FormsModule],
   template: `
     <Authlayout>
-      <form>
+      <form #f="ngForm" (ngSubmit)="onSubmit(form)">
         <div class="login-group">
           <clr-select-container>
             <label>User Role</label>
@@ -56,4 +57,23 @@ export class Login {
     password: '',
     remember: false
   };
+
+  constructor(
+    private loginSvc: LoginService,
+    private _router: Router
+  ) { }
+
+  onSubmit(formData) {
+    this.loginSvc.login(formData).subscribe(response => {
+      console.log(response);
+      const { status, data } = <{ status: string, data: string }>response;
+      if (status == 'ok') {
+        localStorage.setItem('apiToken', data);
+        this._router.navigate(['/main']);
+      }
+
+    }, error => {
+      console.error(error);
+    });
+  }
 }

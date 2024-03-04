@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { routes } from './routes';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Index } from '.';
+import { routes } from './routes';
+import { LoginService } from '../service/login.service';
 
 
 
@@ -12,7 +14,11 @@ import { Index } from '.';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule.forChild(routes)
+  ],
+  providers: [
+    { provide: LoginService }
   ]
 })
 export class IndexModule { }

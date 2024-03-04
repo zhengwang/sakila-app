@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 export class CsrfService {
 
   constructor(private httpClient: HttpClient) {
-    console.log('initial csrd');
     this.httpClient.get<any>('/sanctum/csrf-cookie').subscribe(data => console.log(data));
   }
 }
