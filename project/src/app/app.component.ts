@@ -5,12 +5,13 @@ import { RouterOutlet } from '@angular/router';
 import { MainModule } from './main/main.module';
 import { CsrfService } from './service/csrf.service';
 import { TokenInterceptor } from './service/token.interceptor';
+import { ClarityModule } from '@clr/angular';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, MainModule, RouterOutlet],
+  imports: [CommonModule, ClarityModule, HttpClientModule, MainModule, RouterOutlet],
   template: '<router-outlet></router-outlet>',
   providers: [
     { provide: CsrfService },

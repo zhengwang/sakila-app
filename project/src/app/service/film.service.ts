@@ -9,7 +9,7 @@ export class FilmService {
 
   constructor(private httpClient: HttpClient) { }
 
-  fetch(state: ClrDatagridStateInterface) {
+  fetchAllFilms(state: ClrDatagridStateInterface) {
     const { page, filters, sort } = state;
 
     return this.httpClient.get('/api/inventory/films', {
@@ -21,6 +21,15 @@ export class FilmService {
         filter: '',
         orderBy: (sort?.by) as string ?? 'film_id',
         orderDir: sort?.reverse ? 'desc' : 'asc'
-      }});
+      }
+    });
+  }
+
+  fetchFilmDetail(film_id: number) {
+    return this.httpClient.get('/api/inventory/film', {
+      params: {
+        film_id
+      }
+    });
   }
 }

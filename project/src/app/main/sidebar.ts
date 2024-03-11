@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'Sidebar',
@@ -11,7 +11,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
       <clr-vertical-nav-group routerLinkActive="active">
         <cds-icon shape="film-strip" clrVerticalNavIcon/>
         Inventory
-        <clr-vertical-nav-group-children *clrIfExpanded="current_path=='/main/film'">
+        <clr-vertical-nav-group-children *clrIfExpanded="paths[0].expanded">
           <a clrVerticalNavLink routerLink="/main/film" routerLinkActive="active">
             Films
           </a>
@@ -32,20 +32,28 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 })
 export class Sidebar implements OnInit {
   collapsed = false;
-  current_path = '';
+  paths = [
+    { path: '/main/film', expanded: false, regex: new RegExp('\/main\/film\\??\\w*') },
+    { path: '/main/store', expanded: false, regex: new RegExp('\/main\/store') },
+    { path: '/main/customer', expanded: false, regex: new RegExp('\/main\/customer') }
+  ];
 
   constructor(
     private location: Location,
     private router: Router
   ) {
-    this.current_path = this.location.path();
+    let current_path = this.location.path();
+    const path = this.paths.find(p => p.regex?.test(current_path));
+    if (path) {
+      path.expanded = true;
+    }
   }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         const { url } = event;
-        this.current_path = url;
+        // this.current_path = url;
       }
     });
   }

@@ -25,14 +25,16 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.css",
               "node_modules/@cds/core/global.min.css",
               "node_modules/@cds/core/styles/theme.dark.min.css",
-              "node_modules/@clr/ui/clr-ui.min.css",
-              "src/styles.css"
+              "node_modules/@clr/ui/clr-ui.min.css"
             ],
             "scripts": [
               "src/assets/jquery-3.7.1.min.js",
-              "src/assets/DataTables/datatables.min.js"
+              "src/assets/DataTables/datatables.min.js",
+              "src/assets/jquery-editable-1.5.1/jquery-editable/js/jquery.poshytip.min.js",
+              "src/assets/jquery-editable-1.5.1/jquery-editable/js/jquery-editable-poshytip.js"
             ]
           },
           "configurations": {

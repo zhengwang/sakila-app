@@ -6,6 +6,7 @@ import { ClarityModule } from '@clr/angular';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { Details } from './details';
+import { EditableText } from '../../shared/editable-text';
 
 
 
@@ -18,6 +19,7 @@ import { Details } from './details';
   imports: [
     CommonModule,
     ClarityModule,
+    EditableText,
     RouterModule.forChild(routes)
   ]
 })

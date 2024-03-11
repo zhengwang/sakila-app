@@ -43,7 +43,7 @@ import { ActivatedRoute, Router } from '@angular/router';
               <clr-dg-cell [style.min-width.px]="60" [style.width.px]="60">
                 <div class="btn-group btn-primary btn-icon">
                   <button class="btn btn-sm" (click)="onSelectFilm(film.film_id)">
-                    <cds-icon shape="step-forward-2"></cds-icon>
+                    <cds-icon shape="detail-expand"/>
                     <span class="clr-icon-title">Home</span>
                   </button>
                 </div>
@@ -87,7 +87,7 @@ export class Film implements OnInit {
   refresh(state: ClrDatagridStateInterface) {
     let filters: { [prop: string]: any[] } = {};
 
-    this.filmSvc.fetch(state).subscribe(response => {
+    this.filmSvc.fetchAllFilms(state).subscribe(response => {
       const { status } = <{ status: string, data: any }>response;
       if (status == 'ok') {
         const { data, total } = (response as any).data;
@@ -99,7 +99,7 @@ export class Film implements OnInit {
   }
 
   onSelectFilm(film_id) {
-    this._router.navigate(['/main/film/details'], { queryParams: { film_id } });
+    this._router.navigate(['/main/film/detail', film_id]);
   }
 
   ngOnInit(): void { }
