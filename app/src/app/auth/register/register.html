@@ -1,0 +1,73 @@
+<mat-card class="w-[400px] card">
+	<SplashHeader />
+	<mat-card-content class="mt-1">
+		<form #f="ngForm"
+			(ngSubmit)="f.form.markAllAsTouched(); f.form.valid && password.value == password_confirmation.value ? onSubmit(f.value) :''">
+			<div class="grid grid-cols-2 gap-2">
+				<div class="form-group">
+					<label>First name*</label>
+					<input type="text" class="form-control" placeholder="first name*" name="first_name"
+						[ngClass]="first_name.invalid && (first_name.dirty || first_name.touched) ? 'border-red-500':''" ngModel
+						#first_name="ngModel" required />
+					@if(first_name.invalid && (first_name.touched || first_name.dirty)) {
+					<div class="help-error">Please enter first name.</div>
+					}
+				</div>
+				<div class="form-group">
+					<label>Last name</label>
+					<input type="text" class="form-control" placeholder="last name" name="last_name" ngModel
+						[ngClass]="last_name.invalid && (last_name.dirty || last_name.touched) ? 'border-red-500':''"
+						#last_name="ngModel" />
+					@if(last_name.invalid && (last_name.touched || last_name.dirty)) {
+					<div class="help-error">Please enter last name.</div>
+					}
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Email*</label>
+				<input type="text" class="form-control" placeholder="test@test.com" name="email" ngModel #email="ngModel"
+					[ngClass]="email.invalid && (email.dirty || email.touched) ? 'border-red-500' : ''" required email />
+				@if (email.hasError('required') && (email.touched || email.dirty)) {
+				<div class="help-error">Please enter your email.</div>
+				} @else if(email.hasError('email') && (email.touched || email.dirty)) {
+				<div class="help-error">Please enter a valid email.</div>
+				}
+			</div>
+			<div class="form-group">
+				<label>Password*</label>
+				<input type="password" class="form-control" name="password" ngModel #password="ngModel" required
+					[ngClass]="password.invalid && (password.dirty || password.touched) ? 'border-red-500':''" />
+				@if (password.invalid && (password.touched || password.dirty) ? 'border-red-500':'') {
+				<div class="help-error">Please enter password.</div>
+				}
+			</div>
+			<div class="form-group">
+				<label>Confirm password</label>
+				<input type="password" class="form-control" name="password_confirmation" ngModel
+					#password_confirmation="ngModel" required
+					[ngClass]="password_confirmation.invalid && (password_confirmation.touched || password_confirmation.dirty) ? 'border-red-500':''" />
+				@if (password_confirmation.hasError('required') && (password_confirmation.touched ||
+				password_confirmation.dirty)) {
+				<div class="help-error">Please repeat your password</div>
+				} @else if (password.value != password_confirmation.value) {
+				<div class="help-error">Please confirm your password.</div>
+				}
+			</div>
+			<div class="grid grid-cols-2">
+				<button class="btn btn-secondary rounded-full text-capitalize" type="reset">reset</button>
+				<button class="btn btn-primary rounded-full text-capitalize" type="submit">register</button>
+			</div>
+		</form>
+	</mat-card-content>
+	<mat-card-footer class="p-3">
+		<div class="grid grid-cols-2">
+			<p class="text-xs">
+				Have an account?
+				<a [routerLink]="['']" class="no-underline text-sky-500">Login</a>
+			</p>
+			<p class="text-xs text-end">
+				<a [routerLink]="['']" class="no-underline text-sky-500 text-capitalize">forget password</a>
+			</p>
+		</div>
+	</mat-card-footer>
+</mat-card>

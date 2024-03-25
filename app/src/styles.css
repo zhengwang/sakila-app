@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.help-error {
+	@apply text-red-600 text-xs icon-before icon-solid icon-circle-exclamation icon-space-sm after:content-[''] pt-1
+}
+
+button[type=submit] {
+	background-color: #f96332 !important;
+}

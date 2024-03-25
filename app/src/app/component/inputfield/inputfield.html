@@ -1,0 +1,8 @@
+<div class="form-group">
+	<label>{{label}}</label>
+	<input type="text" class="form-control" [name]="name" [placeholder]="placeholder??''" #control="ngModel" ngModel
+		[ngClass]="control.invalid?'border-red-50':''" />
+	@if(control.invalid && (control.dirty || control.touched)) {
+	<div class="help-error">{{ error_msg ?? ''}}</div>
+	}
+</div>
