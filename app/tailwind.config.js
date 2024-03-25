@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'splash-texture': "url('/assets/img/splash-texture.jpg')"
+        'splash-texture': "url('assets/img/splash-texture.jpg')"
       }
     },
   },
